@@ -1,0 +1,88 @@
+task 2 
+n this task, you’ll work with simulated or exported CSV data from Instagram or Facebook Ads Manager. Your goal is to analyze campaign performance metrics and build an interactive dashboard that helps businesses answer questions like:
+
+How well did the ad campaign perform?
+Which posts or ads had the highest engagement?
+What was the Click-Through Rate (CTR) and Return on Investment (ROI)?
+What can we improve for the next campaign?
+
+
+Perfect — thanks for sharing the data screenshot 🙌
+I see this is a Facebook/Instagram Ads export with columns like `impressions`, `clicks`, `spent`, `total_conv`, and `approved_conversions`.
+
+Let’s break down each **business question** and what to calculate from your dataset:
+
+---
+
+### 1. **How well did the ad campaign perform?**
+
+You need to look at overall performance metrics:
+
+* **Total Impressions** → Sum of the `impressions` column.
+* **Total Clicks** → Sum of `clicks`.
+* **Total Conversions** → Sum of `total_conv` (and/or `approved_conversions`).
+* **Total Spend** → Sum of `spent`.
+* **Cost per Click (CPC)** = `Total Spend ÷ Total Clicks`.
+* **Cost per Conversion (CPA)** = `Total Spend ÷ Total Conversions`.
+* **Conversion Rate (CVR)** = `Total Conversions ÷ Total Clicks × 100`.
+
+👉 These tell you whether the ads were reaching people and driving actions cost-effectively.
+
+---
+
+### 2. **Which posts or ads had the highest engagement?**
+
+* **Click-Through Rate (CTR)** = `Clicks ÷ Impressions × 100`.
+* Higher CTR means the creative (ad/post) was engaging.
+* Sort by CTR per `ad_id` to find the best-performing ads.
+* Also check conversions per ad → `Conversions ÷ Impressions × 100` (Conversion Rate per impression).
+
+---
+
+### 3. **What was the Click-Through Rate (CTR) and Return on Investment (ROI)?**
+
+* **CTR** = `Clicks ÷ Impressions × 100`. (You can calculate this for each ad\_id and overall.)
+* **ROI** (Return on Investment):
+  If you know **Revenue per Conversion** (not in your file, but often tracked), then:
+
+  $$
+  ROI = \frac{(Total Revenue - Total Spend)}{Total Spend} \times 100
+  $$
+
+  Example: If each conversion = ₹500 revenue, then `Total Revenue = Conversions × 500`.
+
+👉 If revenue data isn’t available, you can only analyze **Cost Efficiency** (CPC, CPA).
+
+---
+
+### 4. **What can we improve for the next campaign?**
+
+From these metrics, you can make recommendations:
+
+* If **CTR is low** → Creatives (images/text) need improvement.
+* If **CPC is high but CTR is okay** → Targeting may be too broad or expensive.
+* If **Conversions are low despite high clicks** → Landing page or offer may need optimization.
+* If **ROI is negative** → Adjust budget, targeting, or ad design.
+
+---
+
+✅ **Steps for You in Excel/Python/Power BI/Tableau**:
+
+1. **Create calculated columns**:
+
+   * CTR = `clicks / impressions`
+   * CPC = `spent / clicks`
+   * CPA = `spent / total_conv`
+   * CVR = `total_conv / clicks`
+2. **Pivot by ad\_id** to compare performance per ad.
+3. **Aggregate totals** (sum impressions, clicks, spend, conversions).
+4. **Build dashboard visuals**:
+
+   * CTR trend (bar chart by ad\_id).
+   * Spend vs Conversions (scatter plot).
+   * CPA vs Ad sets (bar chart).
+   * ROI if revenue is known.
+
+---
+
+👉 Would you like me to **make sample calculations (CTR, CPC, CPA, CVR)** from the data shown in your screenshot so you see exact numbers?
